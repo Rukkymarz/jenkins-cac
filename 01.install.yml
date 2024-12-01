@@ -1,0 +1,24 @@
+# Install and configure dependencies 
+---
+- name: Install Java, HTTPD and Git
+  hosts: all
+  become: true
+  roles:
+    - role: java
+    - role: git
+    - role: httpd
+  
+
+- name: Install Tomcat on deploy hosts
+  hosts: g1
+  become: true
+  roles:
+    - role: tomcat
+
+- name: Install Maven on build server
+  hosts: g2
+  become: true
+  roles:
+    - role: maven
+    
+...

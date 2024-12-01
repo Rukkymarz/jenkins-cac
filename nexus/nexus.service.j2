@@ -1,0 +1,13 @@
+[Unit]
+Description=Nexus Repository Manager
+
+[Service]
+Type=simple
+ExecStart=/opt/nexus-3.67.1-01/bin/nexus
+User=nexus
+Group=nexus
+Restart=on-abnormal
+
+[Install]
+WantedBy=multi-user.target
+

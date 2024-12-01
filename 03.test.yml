@@ -1,0 +1,7 @@
+- name: Testing artifacts
+  hosts: n4
+  tasks:
+    - name: Test the app using Maven
+      command: "mvn test"
+      args:
+        chdir: "/home/centos/java-calculator"

@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Configurations') {
             agent { 
-                label 'ansible-master' 
+                label 'n1' 
             }
             steps {
                 echo 'Installations'
@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Build') {
             agent { 
-                label 'ansible-master'
+                label 'n1'
             }
             steps {
                 echo 'Building the app'
@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Test') {
             agent {
-                label  'ansible-master'
+                label  'n1'
             }
             steps {
                 echo 'Testing the app'
@@ -45,7 +45,7 @@ pipeline {
         }
         stage('Deploy') {
             agent {
-                label 'ansible-master'
+                label 'n1'
             }
             steps {
                 echo 'Deploying artifacts to Tomcat servers'
@@ -57,7 +57,7 @@ pipeline {
         }
         stage('Restart Tomcat') {
             agent {
-                label 'ansible-master'
+                label 'n1'
             }
             steps {
                 echo 'Starting Tomcat'
@@ -73,7 +73,7 @@ pipeline {
         success {
             script {
                 // Send email for successful build
-                mail to: 'feliciaebikon@gmail.com, ayinsw@gmail.com',
+                mail to: 'feliciaebikon@gmail.com, rukkymarz@gmail.com',
                 subject: "Build Successful - ${currentBuild.fullDisplayName}",
                 body: "The build was successful.\n\nCheck console output at ${BUILD_URL}"
             }
@@ -81,7 +81,7 @@ pipeline {
         failure {
             script {
                 // Send email for failed build
-                mail to: 'feliciaebikon@gmail.com, ayinsw@gmail.com',
+                mail to: 'feliciaebikon@gmail.com, rukkymarz@gmail.com',
                 subject: "Build Failed - ${currentBuild.fullDisplayName}",
                 body: "The build failed.\n\nCheck console output at ${BUILD_URL}"
             }

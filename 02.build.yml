@@ -8,7 +8,7 @@
 
     - name: Clone GitHub repository (if needed)
       git:
-        repo: "https://github.com/Pearlicia/java-calculator"
+        repo: "https://github.com/rukkymarz/JavaCalculator"
         dest: "~/java-calculator"
         version: main
       register: git_clone
